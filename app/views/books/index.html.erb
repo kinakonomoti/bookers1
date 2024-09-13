@@ -6,4 +6,16 @@
 
 <span><%= book.title %></span>
 
+<p>Body</p>
+
+<span><%= book.body %></span>
+
+<span><%= link_to 'show', book_path(book) %></span>
+
+<sapn><%= link_to 'edit', edit_book_path(book) %></sapn>
+
+<span>
+<%= link_to 'destroy', book_path(book), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+</span>
+
 <% end %>
