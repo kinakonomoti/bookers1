@@ -28,7 +28,3 @@
 .flash-message.notice {
   color: green;
 }
- 
-.flash-message.alert {
-  color: red;
-}

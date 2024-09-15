@@ -7,7 +7,6 @@ class BooksController < ApplicationController
     redirect_to book_path(@book.id)
   else
     @books = Book.all
-    flash.now[:alert] = "投稿に失敗しました"
     render :index
   end
  end
@@ -26,9 +25,15 @@ class BooksController < ApplicationController
   end
 
   def update
-    book = Book.find(params[:id])
-    book.update(book_paramas)
-    redirect_to book_path(book.id)
+    @book = Book.find(params[:id])
+    @book.update(book_paramas)
+    if @book.save
+    flash[:notice] = "Book was successfully updated."
+    redirect_to book_path(@book.id)
+    else
+    @books = Book.all
+    render :edit
+    end
   end
 
   def destroy
