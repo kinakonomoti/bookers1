@@ -7,7 +7,7 @@ class BooksController < ApplicationController
     redirect_to book_path(@book.id)
   else
     @books = Book.all
-    flash.now[:notice] = "投稿に失敗しました"
+    flash.now[:alert] = "投稿に失敗しました"
     render :index
   end
  end
